@@ -1,0 +1,37 @@
+# Ignore build results
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider-specific files
+.idea/
+.idea_modules/
+*.sln.iml
+
+# VS Code-specific files
+.vscode/
+
+# Auto-generated files (e.g., by NuGet)
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET specific files
+appsettings.*.json
+appsettings.local.json
+
+# Mac specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
+
