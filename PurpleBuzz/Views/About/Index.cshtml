@@ -1,3 +1,5 @@
+@using PurpleBuzz.Models.About
+@model PurpleBuzz.Models.About.AboutIndexVM
 
     <!-- Start Banner Hero -->
     <section class="bg-light w-100">
@@ -31,27 +33,16 @@
             </div>
 
             <div class="col-lg-9 row">
-                <div class="team-member col-md-4">
-                    <img class="team-member-img img-fluid rounded-circle p-4" src="~/assets/img/team-01.jpg" alt="Card image">
-                    <ul class="team-member-caption list-unstyled text-center pt-4 text-muted light-300">
-                        <li>John Doe</li>
-                        <li>Business Development</li>
-                    </ul>
-                </div>
-                <div class="team-member col-md-4">
-                    <img class="team-member-img img-fluid rounded-circle p-4" src="~/assets/img/team-02.jpg" alt="Card image">
-                    <ul class="team-member-caption list-unstyled text-center pt-4 text-muted light-300">
-                        <li>Jane Doe</li>
-                        <li>Media Development</li>
-                    </ul>
-                </div>
-                <div class="team-member col-md-4">
-                    <img class="team-member-img img-fluid rounded-circle p-4" src="~/assets/img/team-03.jpg" alt="Card image">
-                    <ul class="team-member-caption list-unstyled text-center pt-4 text-muted light-300">
-                        <li>Sam</li>
-                        <li>Developer</li>
-                    </ul>
-                </div>
+                @foreach (var teamMember in Model.TeamMembers)
+                {
+                    <div class="team-member col-md-4">
+                        <img class="team-member-img img-fluid rounded-circle p-4" src="@teamMember.PhotoPath" alt="Card image">
+                        <ul class="team-member-caption list-unstyled text-center pt-4 text-muted light-300">
+                            <li>@teamMember.Name @teamMember.Surname</li>
+                            <li>@teamMember.Position</li>
+                        </ul>
+                    </div>
+                }
             </div>
 
         </div>
@@ -158,42 +149,19 @@
     <!-- Start Aim -->
     <section class="banner-bg bg-white py-5">
         <div class="container my-4">
-            <div class="row text-center">
-
-                <div class="objective col-lg-4">
-                    <div class="objective-icon card m-auto py-4 mb-2 mb-sm-4 bg-secondary shadow-lg">
-                        <i class="display-4 bx bxs-bulb text-light"></i>
-                    </div>
-                    <h2 class="objective-heading h3 mb-2 mb-sm-4 light-300">Our Vision</h2>
-                    <p class="light-300">
-                        Incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse commodo viverra.
-                    </p>
-                </div>
-
-                <div class="objective col-lg-4 mt-sm-0 mt-4">
-                    <div class="objective-icon card m-auto py-4 mb-2 mb-sm-4 bg-secondary shadow-lg">
-                        <i class='display-4 bx bx-revision text-light'></i>
-                    </div>
-                    <h2 class="objective-heading h3 mb-2 mb-sm-4 light-300">Our Mission</h2>
-                    <p class="light-300">
-                        Eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam quis.
-                    </p>
-                </div>
-
-                <div class="objective col-lg-4 mt-sm-0 mt-4">
-                    <div class="objective-icon card m-auto py-4 mb-2 mb-sm-4 bg-secondary shadow-lg">
-                        <i class="display-4 bx bxs-select-multiple text-light"></i>
-                    </div>
-                    <h2 class="objective-heading h3 mb-2 mb-sm-4 light-300">Our Goal</h2>
-                    <p class="light-300">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor.
-                    </p>
-                </div>
-
-            </div>
-        </div>
+          <div class="row text-center">
+               @foreach (var objective in Model.Objectives)
+               {
+              <div class="objective col-lg-4 mt-sm-0 mt-4">
+                 <div class="objective-icon card m-auto py-4 mb-2 mb-sm-4 bg-secondary shadow-lg">
+                       <i class="display-4 @objective.IconClass text-light"></i>
+                   </div>
+                   <h2 class="objective-heading h3 mb-2 mb-sm-4 light-300">@objective.Title</h2>
+                   <p class="light-300">@objective.Description</p>
+              </div>
+              }
+          </div>
+      </div>
     </section>
     <!-- End Aim -->
 
